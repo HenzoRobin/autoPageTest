@@ -1,0 +1,516 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;	
+	font-family: "microsoft yahei";
+	font-size: 12px;
+	color: rgba(89, 86, 86, 1.0)
+}
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+ul li {
+	list-style: none;
+}
+pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+a {
+  background-color: transparent;
+}
+b,
+strong {
+  font-weight: bolder;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -0.25em;
+}
+sup {
+  top: -0.5em;
+}
+img {
+  border-style: none;
+}
+
+/* ============ normalize reset end =========== */
+body {
+	background-color: rgba(1, 1, 1, 1.0);
+}
+.page {
+	width: 794px;
+	height: 1122px;
+	margin: 10px auto;
+	padding: 8px;
+	background-color: #fff;
+    position: relative;
+}
+.contentArea {
+	width: 640px;
+    margin:0 auto;
+}
+.header{
+    padding-top: 50px;
+    border-bottom: 1px solid #888;
+    padding-bottom: 5px;
+}
+.header p,
+.header span{
+    color: #999;
+}
+
+.spaceArea {
+    width: 640px;
+    height: 200px;
+}
+.spaceArea70 {
+    width: 640px;
+    height: 70px;
+}
+.spaceArea140 {
+    width: 640px;
+    height: 140px;
+}
+.spaceArea100 {
+    width: 640px;
+    height: 100px;
+}
+.spaceArea50 {
+    width: 640px;
+    height: 50px;
+}
+.footer {
+    position: absolute;
+    top: 1050px;
+}
+.footerContent {
+    padding:3px 10px 3px 0px;
+    background-color: rgba(241,232,213,1);
+}
+.footerContent span {
+    color: #888;
+}
+.line {
+    height: 1px;
+    width:70px;
+    background-color: #888;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+.shortSide {
+    width: 230px;
+    float: left;
+    padding: 0px 20px;
+}
+.shortSide p{
+    line-height: 18px;
+    color: #999;
+}
+.longSide {
+    width: 400px;
+    float: right;
+}
+.longSide h2{
+    font-size: 16px;
+    color: rgba(192,132,64,1);
+}
+.twoColArea {
+    overflow: hidden;
+}
+.singleTitle {
+    width: 640px;
+    height: 95px;
+}
+.btmLine {
+    display: inline-block;
+    height: 1px;
+    background-color: #777;
+    width: 513px;
+}
+.btmLineSnp {
+    display: inline-block;
+    height: 1px;
+    background-color: #777;
+    width: 375px;
+}
+.titleWithLine span {
+    font-size: 16px;
+    color: rgba(192,132,64,1);
+}
+.bigTitle {
+    padding: 20px 0px;
+    border-bottom: 1px solid #777;
+}
+.bigTitle h2{
+    font-size: 25px;
+    color: rgba(192,132,64,1);
+    font-weight: 400;
+}
+.noLeftContent {
+    padding: 70px 0px 70px 240px;
+    text-align: justify;
+}
+.withLeftContent {
+    padding: 70px 0px 0px 120px;
+    text-align: justify;
+}
+.withLeftContentSnp {
+    padding: 30px 0px 0px 90px;
+    text-align: justify;
+}
+.withLeftContent p,
+.withLeftContentSnp p {
+    line-height: 18px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+.withLeftContent span,
+.withLeftContentSnp span{
+    padding:2px 1px;
+    background-color: rgba(181,181,181,1);
+}
+.noLeftContent p {
+    line-height: 18px;
+}
+.itemList {
+    padding: 20px 0px;
+    border-bottom: 1px solid #888;
+}
+.itemList p {
+    line-height: 18px;
+}
+.itemList p i {
+    font-style: normal;
+    padding-left: 50px;
+}
+.itemList p:first-child{
+    padding-bottom: 20px;
+}
+.item {
+    padding-bottom: 70px;
+}
+.medicineBox {
+    width: 186px;
+    height: 157px;
+}
+.boxTitle {
+    height: 36px;
+    background-color: rgba(241,232,213,1);
+    text-align: center;
+}
+.boxTitle p {
+    font-size: 15px;
+    line-height: 36px;
+}
+.boxData {
+    height: 65px;
+    background-color: rgba(242,242,242,1);
+}
+.boxContent {
+    text-align: center;
+    height: 55px;
+    background-color: rgba(230,230,230,1);
+}
+.boxContent p:first-child{
+    line-height: 36px;
+}
+.boxContent p:last-child{
+    line-height: 5px;
+}
+.dataLeft,
+.dataRight{
+    display: inline-block;
+    width: 91px;
+    text-align: center;
+}
+.boxData p {
+    font-size: 22px;
+    line-height: 41px;
+}
+.medicineList .medicineBox:last-child {
+    float: right;
+}
+.medicineBox {
+    display: inline-block;
+}
+.medicineList {
+    padding-bottom: 35px;
+}
+.medicineTitle h1 {
+    font-size: 23px;
+    font-weight: 400;
+}
+.fake {
+    padding-top: 50px;
+    width:640px;
+    height: 115px;
+}
+.fake>.longSide>p{
+    text-align: justify;
+    line-height: 18px;
+}
+.fake>.shortSide>.dotTitle>span {
+    font-size: 17px;
+}
+.dot {
+    display: inline-block;
+    margin-right:5px;
+    width: 12px;
+    height: 12px;
+    background-color: rgba(218,218,216,1);
+    border-radius: 6px;
+}
+.leftZhu {
+    padding-left: 40px;
+}
+.leftZhu ul li {
+    line-height: 18px;
+    color: rgba(170,170,170,1);
+}
+.spaceImg {
+    width: 400px;
+    height: 50px;
+    background-color: grey;
+}
+.spaceImg2 {
+    width: 400px;
+    height: 240px;
+    background-color: grey;
+}
+.spaceImg3 {
+    width: 400px;
+    height: 320px;
+    background-color: pink;
+}
+.goods {
+    padding-top: 30px;
+    padding-right: 49px;
+    text-align: right;
+}
+.goods span {
+    font-size: 14px;
+    color: #888;
+    border-bottom: 1px solid #888;
+}
+.goods ul {
+    padding-top: 11px;
+}
+.goods ul li {
+    line-height: 25px;
+    font-size: 14px;
+    color: rgba(192,132,64,1);
+}
+.secondDotTitle {
+    padding-right: 49px;
+    text-align: right;
+}
+.secondDotTitle span{
+    font-size: 16px;
+}
+.medicineIntro p{
+    line-height: 18px;
+    padding-bottom: 20px;
+}
+.medicineConclusion {
+    padding-top: 25px;
+}
+.medicineConclusion p{
+    line-height: 18px;
+    padding-bottom: 20px;
+}
+.medicineTable table{
+    border-collapse: collapse;
+    border-top: 1px solid rgba(180, 180, 180, 1.0);
+    border-right: 1px solid rgba(180, 180, 180, 1.0);
+}
+.medicineTable table {
+    font-size: 12px;
+    margin: 10px auto 0 auto;
+}
+.medicineTable table tr th {
+    font-size: 13px;
+    font-weight: 400;
+    padding: 11px 2px;
+    background-color: rgba(220, 219, 217, 1.0);
+    text-align: center;
+    border-left: 1px solid rgba(180, 180, 180, 1.0);
+    border-bottom: 1px solid rgba(180, 180, 180, 1.0);
+}
+.medicineTable table tr td {
+    text-align: center;
+    padding: 5px;
+    border-left: 1px solid rgba(180, 180, 180, 1.0);
+    border-bottom: 1px solid rgba(180, 180, 180, 1.0);
+}
+.medicineTable table tr td:last-child{
+    text-align: left;
+    line-height: 16px;
+}
+.medicineTable table tr td:first-child{
+    font-style: italic;
+}
+.reference ul li{
+    line-height: 16px;
+    color: #888;
+    padding-bottom: 5px;
+}
+.medicineFunction {
+    width: 640px;
+    height:105px;
+    padding:0px 0px 0px 60px;
+    overflow: hidden;
+}
+.medicineFunction>.secondDotTitle {
+    text-align: left;
+    display: inline-block;
+}
+.functionList {
+    width: 400px;
+    display: inline-block;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(220,220,220,1);
+    float: right;
+}
+.functionList p {
+    line-height: 18px;
+}
+.snpFor {
+    width: 640px;
+    padding: 0px 0px 15px 60px;
+    overflow: hidden;
+}
+.forTtile {
+    padding-right: 49px;
+}
+.snpFor>.forTtile {
+    text-align: left;
+    display: inline-block;
+}
+.snpFor>.forTtile>span {
+    font-size: 16px;
+}
+.snpFor>.forContent {
+    width: 420px;
+    display: inline-block;
+    padding-bottom: 20px;
+    float: right;
+}
+.snpFor>.forContent p {
+    line-height: 17px;
+}
+.firstUl,
+.secondUl,
+.thirdUl {
+    padding-bottom: 25px;
+}
+.firstUl li,
+.secondUl li ,
+.thirdUl li {
+    line-height: 18px;
+}
+.spaceArea25 {
+    width: 420px;
+    height: 45px;
+    background-color: grey;
+}
+.forTtile>.leftZhu {
+    padding-top: 30px;
+    text-align: right;
+}
+.forTtile>.leftZhu>ul>li {
+    line-height: 20px;
+}
+.snpFor>.forContent>.medicineTable>table{
+    margin:0 auto;
+}
+.snpFor>.forContent>.medicineTable>table>tr>th{
+    padding: 5px 0px;
+}
+.snpConclusion {
+    padding-top: 10px;
+}
+.snpConclusion p {
+    line-height: 18px;
+    color: rgba(170,170,170,1);
+}
+.jieduUl li{
+    line-height: 18px;
+    padding-bottom: 10px;
+}
+.snpTable table{
+    border-collapse: collapse;
+}
+.snpTable table {
+    font-size: 12px;
+    margin: 0px auto 0 auto;
+}
+.snpTable table tr th {
+    font-size: 13px;
+    font-weight: 400;
+    padding: 5px 0px;
+    background-color: rgba(220, 219, 217, 1.0);
+    text-align: center;
+}
+.snpTable table tr td {
+    text-align: left;
+    padding: 5px;
+    border-bottom: 1px solid rgba(180, 180, 180, 1.0);
+}
+.snpTable table tr td:first-child{
+    width: 100px;
+}
+.snpTable table tr td:nth-child(2){
+    width: 240px;
+}
+.snpTable table tr td:last-child{
+    width: 60px;
+}
+.snpTable table tr td:last-child {
+    text-align: center;
+}
+.snpTable table tr td>span {
+    display: inline-block;
+    width: 120px;
+    height: 15px;
+    background-color: pink;
+}
+.snpTable table tr td>i {
+    font-style: normal;
+    padding-left: 5px;
+    vertical-align: 3px;
+}
+.colorfulBar {
+    padding-bottom: 10px;
+}
+.colorfulBar img {
+    width: 400px;
+}
+.wudangtu {
+    position: relative;
+    padding-top: 25px;
+}
+.wudangtu img {
+    width: 420px;
+}
+.moveTu {
+    position: absolute;
+    top: 5px;
+    left: 32px;
+}
+.moveTu img{
+    width: 19px;
+    height: 20px;
+}

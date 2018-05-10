@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="all.css">
+</head>
+<body>
+	<div class="page">
+		<div class="contentArea">
+			<div class="header">
+				<p><span>2 </span> 个人全基因组检测套餐</p>
+			</div>
+			<div class="mainContent">
+				<div class="spaceArea"></div>
+				<div class="twoColArea">
+					<div class="singleTitle">
+						<div class="titleWithLine">
+							<span>复 / 杂 / 疾 / 病 / 风 / 险 / 评 / 估 </span>
+							<div class="btmLineSnp"></div>
+						</div>
+						<div class="bigTitle">
+							<h2>结果汇总</h2>
+						</div>
+					</div>
+					<div class="noLeftContent">
+						<p style="padding-bottom: 25px;">复杂疾病是由环境和遗传两种因素共同作用的结果，这两种因素在不同疾病中占有不同的比重，虽然环境与生活习惯对疾病的发生有重要影响，但同时遗传因素增加了我们对疾病的易感性。</p>
+						<p>例如，胃癌是人类最常见的恶性肿瘤之一，它的发生包括生活方式在内的环境因素与遗传因素共同作用，据文献报道，胃癌易感基因PRKAA1、PLCE1、MUC1、PSCA的相关基因型提示个体患有胃癌的风险增高，根据检测风险的提示，可通过改变生活和饮食方式，注意定期体检，做到疾病的不发生或早治疗，为健康管理提供全面的指导。</p>
+					</div>
+					<div class="shortSide">
+						<p>* 我们根据您的基因型对疾病易感 性相对风险进行了评估，并按如下标准分级。</p>
+					</div>
+					<div class="longSide">
+						<div class="colorfulBar">
+							<img src="fx.png">
+						</div>
+						<div id="snptable">
+							<div class="snpTable">
+								<h6 style="display:none">bing</h6>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="footerContent">
+				<div class="line"></div>
+				<span>Personal Genome Testing</span>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		$(function(){
+			$.ajax({
+				url:'allGene.json',
+				success:function(res){
+					// console.log(res)
+					var barSort = res.suiteDetial.outRiskDegree;
+				    // console.log(barSort)
+                    $('.snpTable').append(
+                        '<table>'+
+							'<tr>'+
+								'<th style="width: 100px;">疾病</th>'+
+								'<th style="width: 240px;">您的结果</th>'+
+								'<th style="width: 60px;">页码</th>'+
+							'</tr>'+
+                        '</table>'
+                    )
+					$.each(barSort,function(k,v){
+                        $('.snpTable>table').append(
+                            '<tr>'+
+								'<td>'+v.sickness+'</td>'+
+								'<td><span class="bar"><i style="display:none">'+v.riskValue+'</i></span><i>'+v.riskValue+'</i></td>'+
+								'<td>277</td>'+
+                            '</tr>'
+						)
+                        $('.bar').css('width',v.riskValue*50+'px')
+					})
+					$('.bar').each(function(){
+					    var colorC = $(this).text();
+
+					    if(colorC<0.4){
+					        $(this).css('background-color','#eafae7');
+						}else if(colorC>=0.4 && colorC<0.8){
+                            $(this).css('background-color','#d1f1ec');
+						}else if(colorC>=0.8 && colorC<=1.3) {
+                            $(this).css('background-color', '#f8eab5');
+                        }else if(colorC>1.3 && colorC<3){
+                            $(this).css('background-color','#f6ddb8');
+						}else if(colorC>3){
+                            $(this).css('background-color','#f3c5b3');
+						}
+
+					})
+				},
+				error:function(){
+					console.log(error)
+				}
+			})
+			autoPage();
+		})
+		function autoPage(){
+			var targetpage = $('h6');
+			if(targetpage.html() == 'bing'){ targetpage = targetpage } else { return };
+
+			// console.log(targetpage)
+			var tmpPage = $(targetpage).parents('div.page');
+			// console.log(tmpPage)
+			var tmpSub = $('table tbody').children();
+			// console.log(tmpSub)
+			var clone = tmpSub.clone();
+			// console.log(clone)
+			// var tmpTabla = $("table tbody", $(clone));
+			// console.log(tmpTabla)
+			var tmpTabla =  $(clone).find($("table tbody"));
+			// console.log(tmpTabla)
+			var tmpChild = tmpTabla.children();
+			// console.log(tmpChild)
+			tmpChild.remove();
+
+			var tmpheight = 0 ;
+			var insert = false ; 
+
+			$.each(tmpSub,function(i,c){
+				var eachblock = tmpSub[i];
+				var eachHeight = $(eachblock).outerHeight();
+
+				tmpheight = tmpheight + eachHeight;
+				if( tmpheight > 48 ){
+					console.log(666)
+				}
+			})
+		}
+		function reformAnquanyong() {
+            var pageMaxHeight = 600;
+            var targetPage = "";
+            $("h2").each(function(){
+                if ($(this).html() == 'yao')
+                    targetPage = $(this);
+            });
+
+
+            if (targetPage == '') {
+                return;
+            }
+            // console.log(targetPage)
+            var tmpPage = $(targetPage).parents("div.page").eq(0);
+            // console.log(tmpPage)
+            var tmpSubBlocks = $("table tbody", $(tmpPage)).children();
+            // console.log(tmpSubBlocks)
+
+            var tmpPageClone = tmpPage.clone();
+            var tmpTable = $("table tbody", $(tmpPageClone));
+            var tmpChildren = tmpTable.children();
+            tmpChildren.remove();
+            //$(tmpChildren[0]).appendTo(tmpTable);
+            //$(tmpChildren[1]).appendTo(tmpTable);
+            var tmpHeight = 0;
+            var inserted = false;
+            for (var j = 0; j < tmpSubBlocks.length; j++) {
+                var tmpSubBlock = tmpSubBlocks[j];
+                var tmpSubBlockHeight = $(tmpSubBlock).outerHeight();
+                tmpHeight += tmpSubBlockHeight;
+
+                if (tmpHeight > pageMaxHeight) {
+                    pageMaxHeight = 600;
+                    tmpHeight = 0;
+                    $(tmpPageClone).insertBefore(tmpPage);
+                    tmpPageClone = $(tmpPageClone).clone();
+                    var ahaha = $("table", $(tmpPageClone)).parent();
+                    $(tmpPageClone).children().remove();
+                    tmpPageClone.html('<div class="back_im_g"><img src="../images/newexome/veer-124391255.png"></div><div class="subtitle"><h2>安全用药检测结果汇总</h2><h4></h4></div><div style="padding-bottom:20px;"></div>' + tmpPageClone.html());
+                    $(ahaha).appendTo(tmpPageClone);
+                    tmpTable = $("table tbody", $(tmpPageClone));
+                    var tmpChildren = tmpTable.children();
+                    tmpChildren.remove();
+                    $(tmpChildren[0]).appendTo(tmpTable);
+                    $(tmpChildren[1]).appendTo(tmpTable);
+                    inserted = true;
+                    tmpHeight += tmpSubBlockHeight;
+                }
+
+                inserted = false;
+                $(tmpSubBlock).appendTo(tmpTable);
+            }
+            if (!inserted)
+                $(tmpPageClone).insertBefore(tmpPage);
+            $(tmpPage).remove();
+        }
+            
+	</script>
+</body>
+</html>
